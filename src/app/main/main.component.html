@@ -1,0 +1,25 @@
+
+
+<div class="container mt-5">
+    <label>Asuntos:</label>
+
+    <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="model"
+    [ngbTypeahead]="search"
+    (focus)="focus$.next($any($event).target.value)"
+    #instance="ngbTypeahead"
+    />
+
+    <hr>
+    
+    <pre>Resultado: {{ model | json }}</pre>
+
+    <input class="form-control" type="text" list="exampleList">
+
+    <datalist style="overflow-y: scroll;width: 100px;" id="exampleList">
+        <option *ngFor="let a of sta" value="{{a.nombre}}">
+    </datalist>
+</div>
+
